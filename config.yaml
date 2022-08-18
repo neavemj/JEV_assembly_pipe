@@ -1,0 +1,32 @@
+## -------------- project specific parameters to be changed -------------- ##
+
+# specify where the JEV_assembly_pipe folder has been cloned
+
+program_dir: "/my/install/location/JEV_assembly_pipe/"
+
+# give each sample a name and specifiy the location of reads
+
+samples:
+  My_JEV_sample:
+    - /my/forward/read/location_R1.fastq.gz
+    - /my/reverse/read/location_R2.fastq.gz
+  My_other_sample:
+    - /my/other/read/location_R1.fastq.gz
+    - /my/other/read/location_R2.fastq.gz
+
+
+## -------------- pipeline parameters -------------- ##
+
+# -------------- Trimming -------------- #
+
+# Trimmomatic is used for trimming the sequencing reads
+# The program requires an adapter file specific for the sequencing run
+# and a minimum quality score can be given
+
+trimmomatic_adapters: "config/NexteraPE-PE.fa"
+trimmomatic_quality: 20
+trimmomatic_minlen: 50
+
+# -------------- Assembly -------------- #
+
+
