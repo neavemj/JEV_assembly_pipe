@@ -1,18 +1,22 @@
 ## -------------- project specific parameters to be changed -------------- ##
 
 # specify where the JEV_assembly_pipe folder has been cloned
+# include the trailing forward slash in your path
 
-program_dir: "/my/install/location/JEV_assembly_pipe/"
+program_dir: "/my_unix/home/software/JEV_assembly_pipe/"
 
 # give each sample a name and specifiy the location of reads
+# do not change the word "samples" below
 
 samples:
-  My_JEV_sample:
-    - /my/forward/read/location_R1.fastq.gz
-    - /my/reverse/read/location_R2.fastq.gz
-  My_other_sample:
-    - /my/other/read/location_R1.fastq.gz
-    - /my/other/read/location_R2.fastq.gz
+  my_sample1:
+    - /my_unix/home/data/sample1_L001_R1_001.fastq.gz
+    - /my_unix/home/data/sample1_L001_R2_001.fastq.gz
+  my_sample2:
+    - /my_unix/home/data/sample2_L001_R1_001.fastq.gz
+    - /my_unix/home/data/sample2_L001_R2_001.fastq.gz
+  my_unpaired_sample:
+    - /my_unix/home/data/unpaired.fastq.gz
 
 
 ## -------------- pipeline parameters -------------- ##
@@ -20,13 +24,35 @@ samples:
 # -------------- Trimming -------------- #
 
 # Trimmomatic is used for trimming the sequencing reads
-# The program requires an adapter file specific for the sequencing run
+# The program requires an adapter file for the library type
+# E.g. "NexteraPE-PE", "TruSeq2-PE.fa"
 # and a minimum quality score can be given
 
 trimmomatic_adapters: "config/NexteraPE-PE.fa"
 trimmomatic_quality: 20
 trimmomatic_minlen: 50
 
+# minimum read length required after ivar primer masking
+ivar_min_length: 50
+
+
 # -------------- Assembly -------------- #
+
+# reference genome to be used for trimming tiling primers and guided assembly
+# don't change if using the JEV-SW-500 primer scheme
+
+JEV_reference_genome: "config/ON624132.fasta"
+primal_scheme_bed: "config/JEV-SW-500_ON624132.bed"
+
+# minimum frequency is that which a base must match to be called as the consensus base at a position, eg:
+#   0 | Majority or most common base
+# 0.2 | Bases that make up at least 20% of the depth at a position
+# 0.5 | Strict or bases that make up at least 50% of the depth at a position
+# 0.9 | Strict or bases that make up at least 90% of the depth at a position
+#   1 | Identical or bases that make up 100% of the depth at a position. Will have highest ambiguities
+ivar_frequency_threshold: 0.75
+
+# minimum depth to be included in consensus (otherwise an N is called)
+ivar_min_depth: 10
 
 

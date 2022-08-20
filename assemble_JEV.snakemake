@@ -1,10 +1,8 @@
-
 """
-JEV Genome Assembly Pipeline
-Pipeline for assembling raw Illumina reads into
-Japanese encephalitis whole genomes
-
-File locations and options can be changed in the config.yaml file
+JEV_assembly_pipe: Generation of JEV consensus genomes
+from primer tiling data.
+Parameters and samples can be changed by altering 
+the config.yaml file
 """
 
 import os, sys
@@ -15,8 +13,12 @@ rules_dir = os.path.join(os.path.expanduser(config["program_dir"]), "rules")
 
 include: os.path.join(rules_dir, "preprocessing.smk")
 include: os.path.join(rules_dir, "assembly.smk")
+include: os.path.join(rules_dir, "report.smk")
 
 
 rule all:
     input:
-        "report.html"
+        expand("04_genomes/{sample}_consensus.fa", sample=config["samples"]),
+        expand("05_report/{sample}_coverage.png", sample=config["samples"]),
+        "05_report/summary_stats.txt"
+
