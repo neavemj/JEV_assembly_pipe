@@ -41,7 +41,7 @@ cp $HOME/software/JEV_assembly_pipe/assemble_JEV.snakemake $HOME/data/JEV_genome
 
 *Note: copying these files is very important and ensures clear separation between the software and the data. Each time you run the pipeline copy a new config and snakemake file to the data location* 
 
-Now open the config.yaml file in your favorite text editor and change the installation location and the location of your sequence reads. Instructions are given in the config.yaml file and other parameters can be changed here.
+Now open the config.yaml file in your favorite text editor and change the installation location, the location of your sequence reads, and any other parameters.
 
 Finally run the snakemake pipeline, specifying the number of cores you wish to use. For example, to use 4 cores:
 
