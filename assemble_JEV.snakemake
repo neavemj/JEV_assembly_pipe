@@ -1,10 +1,10 @@
 
 """
-MAPPD: Metagenomic Analysis Pipeline for Pathogen Discovery
-Pipeline for finding pathogen DNA/RNA in metagenomic data
-Includes trimming, assembly and annotation
-Different pipelines can be selected and run in parallel
-by altering the config.yaml file
+JEV Genome Assembly Pipeline
+Pipeline for assembling raw Illumina reads into
+Japanese encephalitis whole genomes
+
+File locations and options can be changed in the config.yaml file
 """
 
 import os, sys
