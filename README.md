@@ -7,13 +7,13 @@ This is a [Snakemake](https://snakemake.readthedocs.io/en/stable/) pipeline to a
 ## Installation
 This repository first needs to be cloned onto your system. For example:
 ```
-git clone https://github.com/neavemj/JEV_assembly_pipe.git $HOME/software/JEV_assembly_pipe
+git clone https://github.com/neavemj/JEV_assembly_pipe.git $HOME/JEV_assembly_pipe
 ```
 
 The software required by the pipeline is listed in the environment.yaml file. If you use [Conda](https://conda.io/docs/install/quick.html), you can use the environment.yaml file to install everything you need:
 
 ```
-conda env create -f $HOME/software/JEV_assembly_pipe/environment.yaml
+conda env create -f $HOME/JEV_assembly_pipe/environment.yaml
 ```
 
 Once everything is installed, activate the environment:
@@ -27,25 +27,25 @@ conda activate JEV_assembly_pipe
 First create a directory where you want the results to go:
 
 ```
-mkdir JEV_genomes
+mkdir $HOME/JEV_data
 ```
 
 Then copy the config.yaml file from the github repository into your new data directory: 
 
 ```
-cp $HOME/software/JEV_assembly_pipe/config.yaml $HOME/data/JEV_genomes/
+cp $HOME/JEV_assembly_pipe/config.yaml $HOME/JEV_data/
 ```
 
-*Note: copying this file is very important and ensures clear separation between the software and the data. Each time you run the pipeline, copy a new config.yaml file to the data location* 
+*Note: copying this file is very important and ensures clear separation between the software and the data. Each time you run the pipeline, copy a new config.yaml file to a new data directory* 
 
 Now open the config.yaml file in your favorite text editor and change the installation location, the location of your sequence reads, and any other parameters.
 
 Finally run the snakemake pipeline from your new directory, specifying the number of cores you wish to use. For example, to use 4 cores:
 
 ```
-cd $HOME/data/JEV_genomes/
+cd $HOME/JEV_data/
 
-snakemake -s $HOME/software/JEV_assembly_pipe/assemble_JEV.snakemake -j 4
+snakemake -s $HOME/JEV_assembly_pipe/assemble_JEV.snakemake -j 4
 ```
 
 ## Output Files
