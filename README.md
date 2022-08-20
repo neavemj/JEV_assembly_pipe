@@ -2,9 +2,7 @@
 
 ## Introduction
 
-This is a [Snakemake](https://snakemake.readthedocs.io/en/stable/) pipeline to assemble whole Japanese encephalitis virus (JEV) genomes from primer tiling data, such as those designed using [Primal Scheme](https://primalscheme.com/). The pipeline takes raw Illumina reads and trims for quality and adapters using [Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic), aligns to a reference JEV genome with [Bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml), then masks the tiling primers and generates a consensus genome with [iVar](https://andersen-lab.github.io/ivar/html/manualpage.html). 
-
-The results are summarised by calculating how much of the genome was obtained and coverage over the genome is plotted with [ggplot2](https://ggplot2.tidyverse.org/).
+This is a [Snakemake](https://snakemake.readthedocs.io/en/stable/) pipeline to assemble whole Japanese encephalitis virus (JEV) genomes from primer tiling data, such as those designed using [Primal Scheme](https://primalscheme.com/). The pipeline takes raw Illumina reads and trims for quality and adapters using [Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic), aligns to a reference JEV genome with [Bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml), then masks the tiling primers and generates a consensus genome with [iVar](https://andersen-lab.github.io/ivar/html/manualpage.html). The genome assembly results are summarised and coverage over the genome is plotted with [ggplot2](https://ggplot2.tidyverse.org/).
 
 ## Installation
 This repository first needs to be cloned onto your system. For example:
