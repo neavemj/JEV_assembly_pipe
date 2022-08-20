@@ -30,7 +30,7 @@ First create a directory where you want the results to go:
 mkdir JEV_genomes
 ```
 
-Then copy the config.yaml file and the assemble_JEV.snakemake file from the github repository into your data directory: 
+Then copy the config.yaml file and the assemble_JEV.snakemake file from the github repository into your new data directory: 
 
 ```
 cp $HOME/software/JEV_assembly_pipe/config.yaml $HOME/data/JEV_genomes/
