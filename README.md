@@ -15,7 +15,7 @@ git clone https://github.com/neavemj/JEV_assembly_pipe.git $HOME/software/JEV_as
 The software required by the pipeline is listed in the environment.yaml file. If you use [Conda](https://conda.io/docs/install/quick.html), you can use the environment.yaml file to install everything you need:
 
 ```
-conda env create -f $HOME/software/JEV_assembly_pipe/environment.yml
+conda env create -f $HOME/software/JEV_assembly_pipe/environment.yaml
 ```
 
 Once everything is installed, activate the environment:
@@ -23,4 +23,54 @@ Once everything is installed, activate the environment:
 ```
 conda activate JEV_assembly_pipe
 ```
+
+## Running the pipeline
+
+First create a directory where you want the results to go:
+
+```
+mkdir JEV_genomes
+```
+
+Then copy the config.yaml file and the assemble_JEV.snakemake file from the github repository into your data directory. 
+
+```
+cp $HOME/software/JEV_assembly_pipe/config.yaml $HOME/data/JEV_genomes/
+cp $HOME/software/JEV_assembly_pipe/assemble_JEV.snakemake $HOME/data/JEV_genomes/
+```
+
+*Note: copying these files is very important and ensures clear separation between the software and the data* 
+
+Now open the config.yaml file in your favorite text editor and change the installation location and the location of your sequence reads. Instructions are given in the config.yaml file and other parameters can be changed here.
+
+Finally run the snakemake pipeline, specifying the number of cores you wish to use. For example, to use 4 cores:
+
+```
+snakemake -s assemble_JEV.snakemake -j 4
+```
+
+## Output Files
+
+| Extension | Description |
+| --------- | ----------- |
+| 04_genomes/*.fa | these are the assembled consensus genomes from iVar |
+| 04_genomes/*.qual.txt | the quality scores for each position in the genome |
+| 05_report/*.png | coverage depth plots for each sample |
+| 05_report/summary_stats.txt | summary of input reads, cleaned reads, and percent genome recovery |
+
+
+
+### Example summary output
+
+| Sample_name         | Input_reads | Cleaned_reads | Aligned_reads | Ref_coverage_(%) |
+| ------------------- | ----------- | ------------- | ------------- | ---------------- |
+| my_sample1              |    140994   |     130440    |      126639   |           98.46  |
+| my_sample2              |    254976   |     229112    |      225946   |           39.42  |
+| my_unpaired |    976526   |     960010    |      956992   |           68.52  |
+
+
+### Example coverage figure
+
+
+
 
