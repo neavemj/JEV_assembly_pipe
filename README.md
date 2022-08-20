@@ -71,6 +71,8 @@ snakemake -s assemble_JEV.snakemake -j 4
 
 ### Example coverage figure
 
+![alt text](https://github.com/neavemj/JEV_assembly_pipe/blob/main/config/JEV_sample1_coverage.png)
 
+![alt text](https://github.com/neavemj/JEV_assembly_pipe/blob/main/config/JEV_sample2_coverage.png)
 
 
