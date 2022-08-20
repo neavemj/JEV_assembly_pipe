@@ -30,14 +30,13 @@ First create a directory where you want the results to go:
 mkdir JEV_genomes
 ```
 
-Then copy the config.yaml file and the assemble_JEV.snakemake file from the github repository into your new data directory: 
+Then copy the config.yaml file from the github repository into your new data directory: 
 
 ```
 cp $HOME/software/JEV_assembly_pipe/config.yaml $HOME/data/JEV_genomes/
-cp $HOME/software/JEV_assembly_pipe/assemble_JEV.snakemake $HOME/data/JEV_genomes/
 ```
 
-*Note: copying these files is very important and ensures clear separation between the software and the data. Each time you run the pipeline, copy a new config and snakemake file to the data location* 
+*Note: copying this file is very important and ensures clear separation between the software and the data. Each time you run the pipeline, copy a new config.yaml file to the data location* 
 
 Now open the config.yaml file in your favorite text editor and change the installation location, the location of your sequence reads, and any other parameters.
 
@@ -46,7 +45,7 @@ Finally run the snakemake pipeline from your new directory, specifying the numbe
 ```
 cd $HOME/data/JEV_genomes/
 
-snakemake -s assemble_JEV.snakemake -j 4
+snakemake -s $HOME/software/JEV_assembly_pipe/assemble_JEV.snakemake -j 4
 ```
 
 ## Output Files
