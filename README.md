@@ -10,7 +10,7 @@ This repository first needs to be cloned onto your system. For example:
 git clone https://github.com/neavemj/JEV_assembly_pipe.git $HOME/JEV_assembly_pipe
 ```
 
-The software required by the pipeline is listed in the environment.yaml file. If you use [Conda](https://conda.io/docs/install/quick.html), you can use the environment.yaml file to install everything you need:
+The software required by the pipeline is listed in the environment.yaml file. If you use [Conda](https://anaconda.com), you can use the environment.yaml file to install everything you need:
 
 ```
 conda env create -f $HOME/JEV_assembly_pipe/environment.yaml
